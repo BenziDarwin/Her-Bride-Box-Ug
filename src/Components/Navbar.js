@@ -15,7 +15,48 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { Drawer } from '@mui/material';
+import { Link } from 'react-router-dom';
 
+const pages = [
+    {
+      pageName: "My Profile",
+      link: "/profile",
+      icon: "",
+    },
+    {
+      pageName: "For You",
+      link: "/for-you",
+      icon: "",
+    },
+    {
+      pageName: "Search Jobs",
+      link: "/jobs",
+      icon: "",
+    },
+    {
+      pageName: "My Applications",
+      link: "/applications",
+      icon: "",
+    },
+    {
+      pageName: "Settings",
+      link: "/settings",
+      icon: "",
+    },
+    {
+      pageName: "Logout",
+      link: "/logout",
+      icon: "",
+    },
+  ];
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -57,6 +98,42 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar() {
+    const [state, setState] = React.useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState(open);
+  };
+  const list = () => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {pages.map((page) => (
+          <ListItem key={page.link} sx={{ marginTop: "10px" }} disablePadding>
+            <Link
+              to={page.link}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <ListItemIcon>
+                {page.icon} <ListItemText primary={page.pageName} />
+              </ListItemIcon>
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -117,7 +194,7 @@ export default function NavBar() {
         horizontal: 'right',
       }}
       open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
+      onClick={renderMenu}
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -156,6 +233,9 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+          <Drawer anchor={"left"} open={state} onClose={toggleDrawer(false)}>
+        {list()}
+      </Drawer>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -163,6 +243,7 @@ export default function NavBar() {
             edge="start"
             color="inherit"
             aria-label="open drawer"
+            onClick={toggleDrawer(true)}
             sx={{ mr: 2 }}
           >
             <MenuIcon />
