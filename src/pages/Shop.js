@@ -2,6 +2,7 @@ import React from 'react'
 import ShopHero from '../Components/ShopHero';
 import { Grid, Typography } from '@mui/material';
 import ProductCard from '../Components/ProductCard';
+import OffersCard from '../Components/OffersCard';
 
 function Shop() {
   return (
@@ -37,42 +38,11 @@ function Shop() {
         </Typography>
     </Grid>
     </Grid>
-    <div className='min-h-[60vh] pb-5 bg-[#CDA792] w-screen'>
+    <div className='min-h-[60vh] pb-5 bg-[#CDA792] w-screen pt-5'>
     <div className="grid md:grid-cols-3 gap-6 grid-cols-1 place-items-center">
-    <div class="max-w-sm bg-transparent md:w-[500px] w-[300px]">
-<h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Bridal Shoes</h5>
-    <a href="#">
-        <img class="rounded-t-lg" src="./logo512.png" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white text-center">Up to 50% off.</h5>
-        </a>
-    </div>
-</div>
-<div class="max-w-sm bg-transparent">
-<h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Bridal Shoes</h5>
-    <a href="#">
-        <img class="rounded-t-lg" src="./logo512.png" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white text-center">Up to 50% off.</h5>
-        </a>
-    </div>
-</div>
-<div class="max-w-sm bg-transparent">
-<h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Bridal Shoes</h5>
-    <a href="#">
-        <img class="rounded-t-lg" src="./logo512.png" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white text-center">Up to 50% off.</h5>
-        </a>
-    </div>
-</div>
-
+        <OffersCard itemName="Bridal Shoes" src="./logo512.png" discount="Up to 50% off."/>
+        <OffersCard itemName="Bridal Shoes" src="./logo512.png" discount="Up to 50% off."/>
+        <OffersCard itemName="Bridal Shoes" src="./logo512.png" discount="Up to 50% off."/>
     </div>
     </div>
     </>
