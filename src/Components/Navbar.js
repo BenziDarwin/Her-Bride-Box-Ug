@@ -194,7 +194,7 @@ export default function NavBar() {
         horizontal: 'right',
       }}
       open={isMobileMenuOpen}
-      onClick={renderMenu}
+      onClose={handleMobileMenuClose}
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -231,12 +231,13 @@ export default function NavBar() {
     </Menu>
   );
 
+
   return (
     <Box sx={{ flexGrow: 1 }}>
           <Drawer anchor={"left"} open={state} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
-      <AppBar position="static">
+      <AppBar sx={{paddingBottom:"15px", backgroundColor:"#8EB226"}} position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -246,7 +247,7 @@ export default function NavBar() {
             onClick={toggleDrawer(true)}
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{display:{md:"none", xs:"block"}}}/>
           </IconButton>
           <Typography
             variant="h6"
@@ -254,7 +255,7 @@ export default function NavBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Her Bride Box Ug
           </Typography>
           <Search>
             <SearchIconWrapper>
