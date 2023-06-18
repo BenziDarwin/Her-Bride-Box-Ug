@@ -22,40 +22,26 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { Drawer } from '@mui/material';
+import { Button, Drawer } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const pages = [
     {
-      pageName: "My Profile",
-      link: "/profile",
-      icon: "",
+      pageName: "Shop",
+      link: "/",
     },
     {
-      pageName: "For You",
-      link: "/for-you",
-      icon: "",
+      pageName: "Products",
+      link: "/products",
     },
     {
-      pageName: "Search Jobs",
-      link: "/jobs",
-      icon: "",
+      pageName: "Sale",
+      link: "/sale",
     },
     {
-      pageName: "My Applications",
-      link: "/applications",
-      icon: "",
-    },
-    {
-      pageName: "Settings",
-      link: "/settings",
-      icon: "",
-    },
-    {
-      pageName: "Logout",
-      link: "/logout",
-      icon: "",
-    },
+      pageName: "Contact",
+      link: "/contact",
+    }
   ];
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -125,7 +111,7 @@ export default function NavBar() {
               style={{ textDecoration: "none", color: "black" }}
             >
               <ListItemIcon>
-                {page.icon} <ListItemText primary={page.pageName} />
+                <ListItemText sx={{marginLeft:"30px"}} primary={page.pageName} />
               </ListItemIcon>
             </Link>
           </ListItem>
@@ -257,6 +243,19 @@ export default function NavBar() {
           >
             Her Bride Box Ug
           </Typography>
+          <Box sx={{ flexGrow: 10}}/>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Link to={page.link} style={{ textDecoration: "none" }}>
+                <Button
+                  key={page.pageName}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.pageName}
+                </Button>
+              </Link>
+            ))}
+          </Box>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -266,7 +265,6 @@ export default function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
