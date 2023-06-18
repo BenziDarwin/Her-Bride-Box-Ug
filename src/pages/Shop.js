@@ -39,7 +39,7 @@ function Shop() {
     </Grid>
     <div className='min-h-[60vh] pb-5 bg-[#CDA792] w-screen'>
     <div className="grid md:grid-cols-3 gap-6 grid-cols-1 place-items-center">
-    <div class="max-w-sm bg-transparent">
+    <div class="max-w-sm bg-transparent md:w-[500px] w-[300px]">
 <h5 class="mb-2 text-2xl font-bold tracking-tight text-black">Bridal Shoes</h5>
     <a href="#">
         <img class="rounded-t-lg" src="./logo512.png" alt="" />
