@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProductCard({src, title, itemName, price}) {
   return (
-    <div class="max-w-sm md:w-[500px] w-[300px] text-left rounded overflow-hidden bg-[#E6E6E6] shadow-lg">
+    <div class="max-w-sm xl:w-[500px] xs:w-[300px] text-left rounded overflow-hidden bg-[#E6E6E6] shadow-lg">
   <img class="w-full" src={src} alt="Sunset in the mountains"/>
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{title}</div>

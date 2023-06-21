@@ -20,7 +20,7 @@ function Shop() {
         </Typography>
     </Grid>
     </Grid>
-    <div className="grid md:grid-cols-4 gap-6 grid-cols-1 place-items-center">
+    <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-6 grid-cols-1 place-items-center">
     <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
     <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
     <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
@@ -38,7 +38,7 @@ function Shop() {
         </Typography>
     </Grid>
     </Grid>
-    <div className='min-h-[60vh] pb-5 bg-[#CDA792] w-screen pt-5'>
+    <div className='xl:h-[60vh] pb-5 bg-[#CDA792] w-screen pt-5'>
     <div className="grid md:grid-cols-3 gap-6 grid-cols-1 place-items-center">
         <OffersCard itemName="Bridal Shoes" src="./logo512.png" discount="Up to 50% off."/>
         <OffersCard itemName="Bridal Shoes" src="./logo512.png" discount="Up to 50% off."/>
