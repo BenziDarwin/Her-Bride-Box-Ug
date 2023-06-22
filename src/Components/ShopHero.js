@@ -1,6 +1,7 @@
 import React from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button, Grid } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 function ShopHero() {
   return (
@@ -12,8 +13,10 @@ function ShopHero() {
     <section>
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12">
           <h1 className="mb-4 text-4xl font-extrabold md:text-left tracking-tight leading-none text-[#D7FFA5] md:text-4xl dark:text-white">Discover</h1>
-          <p className="mb-8 text-lg font-normal md:text-left text-white md:text-6xl">Our New Products For You.</p>
-          <Button variant='contained' className=''  sx={{backgroundColor:"#B3EA1F", ":hover":{backgroundColor:"darkgreen"}}}>Shop &nbsp; <ArrowForwardIcon/></Button>
+          <p className="mb-8 text-2xl font-normal md:text-left text-white md:text-6xl">Our New Products For You.</p>
+          <Link to="/products">
+            <Button variant='contained' className=''  sx={{backgroundColor:"#73A336", ":hover":{backgroundColor:"darkgreen"}}}>Products &nbsp; <ArrowForwardIcon/></Button>
+          </Link>
       </div>
   </section>
     </Grid>
