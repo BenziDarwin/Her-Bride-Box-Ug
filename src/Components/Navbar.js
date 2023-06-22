@@ -23,16 +23,12 @@ import { Link } from 'react-router-dom';
 
 const pages = [
     {
-      pageName: "Shop",
+      pageName: "Home",
       link: "/",
     },
     {
       pageName: "Products",
       link: "/products",
-    },
-    {
-      pageName: "Sale",
-      link: "/sale",
     },
     {
       pageName: "Contact",
@@ -211,7 +207,7 @@ export default function NavBar() {
           <Drawer anchor={"left"} open={state} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
-      <AppBar sx={{paddingBottom:"15px", backgroundColor:"#B3EA1F"}} position="static">
+      <AppBar sx={{paddingBottom:{xs:"13px"}, backgroundColor:"#B3EA1F"}} position="static">
         <Toolbar>
           <IconButton
             size="large"

@@ -1,13 +1,13 @@
 import React from 'react'
-import ShopHero from '../Components/ShopHero';
+import Hero from '../Components/Hero';
 import { Grid, Typography } from '@mui/material';
 import ProductCard from '../Components/ProductCard';
 import OffersCard from '../Components/OffersCard';
 
-function Shop() {
+function Home() {
   return (
     <>
-    <ShopHero/>
+    <Hero/>
     <Grid container className='px-10 py-4'>
     <Grid item xs={7} md={6}>
     <Typography sx={{fontSize:{md:"40px", xs:"18px"}}} className="md:ms-12">
@@ -21,10 +21,10 @@ function Shop() {
     </Grid>
     </Grid>
     <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-6 grid-cols-1 place-items-center">
-    <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./logo192.png" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
 </div>
 
     
@@ -32,4 +32,4 @@ function Shop() {
   )
 }
 
-export default Shop
+export default Home
