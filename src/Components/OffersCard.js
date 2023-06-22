@@ -2,7 +2,7 @@ import React from 'react'
 
 function OffersCard({itemName, src, discount}) {
   return (
-    <div class="max-w-sm bg-transparent md:w-[500px] w-[300px]">
+    <div class="max-w-sm bg-transparent xl:w-[500px]">
 <h5 class="mb-2 text-2xl font-bold tracking-tight text-black">{itemName}</h5>
     <a href="#">
         <img class="rounded-t-lg" src={src} alt="" />

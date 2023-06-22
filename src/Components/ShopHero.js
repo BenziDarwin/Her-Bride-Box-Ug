@@ -4,7 +4,7 @@ import { Button, Grid } from '@mui/material'
 
 function ShopHero() {
   return (
-    <Grid container className="md:h-[50vh] bg-[#CDA792] mt-20" spacing={2}>
+    <Grid container className="lg:min-h-[50vh] min-h-[45vh] bg-[#CDA792] mt-20" spacing={2}>
     <Grid item sx={{textAlign:"center", display:{md:"block", xs:"none"}}} md={3}>
       <img src='' alt='Hero image'/>
     </Grid>
