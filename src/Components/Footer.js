@@ -8,7 +8,7 @@ function Footer() {
         <div className="md:flex md:justify-between lg:mx-12">
           <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Her Bride Box Ug</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HerBrideBoxUg</span>
               </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -25,7 +25,7 @@ function Footer() {
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Her Bride Box Ug</a>. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400"> © 2023 <a href="https://flowbite.com/" className="hover:underline">HerBrideBoxUg</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">

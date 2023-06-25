@@ -37,7 +37,7 @@ export default function Contacts() {
              Contact Us!
             </Typography>
             <Typography variant="h4" className='text-center text-gray-500'>
-             Get your dream wedding outfit today.
+             We are your go to plug!
             </Typography>
         </div>
         <Card sx={{maxWidth:"100%", margin:"50px", alignContent:"center"}}>
@@ -65,7 +65,8 @@ export default function Contacts() {
             </Typography>
             <div className='mt-12'>
             <p class="mb-3 text-lg text-black md:text-xl">
-                <Phone/> +256 123456789
+                <Phone/> +256 788999648
+                <Phone/> +256 705468775
             </p>
             <p class="mb-3 text-lg text-black md:text-xl">
                 <Mail/> example@gmail.com
@@ -186,7 +187,8 @@ export default function Contacts() {
              Contact Information
             </Typography>
             <p>Reach out to us today!</p>
-            <p><Phone/> +256 123456789</p>
+            <p><Phone/> +256 788999648</p>
+            <p><Phone/> +256 705468775</p>
             <p><Mail/> example@gmail.com</p>
             <p><LocationCity/> Shop HerBrideBoxUg, Kampala, Uganda.</p>
         </Grid>

@@ -42,16 +42,14 @@ function Products() {
     </Typography>
     </Grid>
     <Grid item xs={6}>
-    <Typography textAlign="right" sx={{textDecoration:"underline", fontSize:{md:"24px", xs:"18px"}}}>
-        View All Brands
-        </Typography>
+   
     </Grid>
     </Grid>
     <div className='xl:h-[60vh] pb-5 bg-[#CDA792] w-screen pt-5'>
     <div className="grid md:grid-cols-3 gap-6 grid-cols-1 place-items-center">
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" discount="Up to 50% off."/>
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" discount="Up to 50% off."/>
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" discount="Up to 50% off."/>
+        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
+        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
+        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
     </div>
     </div>
     </>
