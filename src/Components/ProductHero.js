@@ -13,9 +13,9 @@ function ProductHero() {
       <div className="px-4 mx-auto max-w-screen-xl">
           <h1 style={{fontFamily:"Sree Krushnadevaraya"}} className="mb-4 text-[40px] lg:text-[60px] font-extrabold md:text-left tracking-tight leading-none text-black dark:text-white">The Ordinary</h1>
           <p className="mb-8 mt-12 text-[30px] lg:text-[40px] text-[#686868] font-normal md:text-left">HerBrideBoxUg is your destination for All kinds of bridal accessories to prepare you for your big day!</p>
-          <Link to="/products">
-            <Button variant='contained' sx={{marginBottom:{xs:"20px"},padding:"15px",backgroundColor:"#73A336", ":hover":{backgroundColor:"darkgreen"}}}>Learn More &nbsp; <ArrowForwardIcon/></Button>
-          </Link>
+          
+            <a href="https://www.instagram.com/her_bride_box_ug/"><Button variant='contained'sx={{marginBottom:{xs:"20px"},padding:"15px",backgroundColor:"#73A336", ":hover":{backgroundColor:"darkgreen"}}}>Visit Our Instagram&nbsp; <ArrowForwardIcon/></Button></a>
+          
       </div>
   </section>
     </Grid>
