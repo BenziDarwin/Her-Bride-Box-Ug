@@ -11,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import List from '@mui/material/List';
@@ -20,6 +19,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Button, Drawer } from '@mui/material';
 import { Link } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const pages = [
     {
@@ -180,6 +180,16 @@ export default function NavBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
+          <AccountCircleIcon/>
+        </IconButton>
+        <p>Log In</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
           <Badge badgeContent={17} color="error">
             <ShoppingCartIcon/>
           </Badge>
@@ -238,6 +248,13 @@ export default function NavBar() {
             />
           </Search>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+            <AccountCircleIcon />
+            </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
