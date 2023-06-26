@@ -2,13 +2,13 @@ import {auth} from "../firebaseConfig"
 import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 
 
-export default class Firestore {
+export default class Auth {
     
-    getUser = () => {
+    static getUser = () => {
         return auth.currentUser
     }
 
-    login = async (email, password) => {
+    static login = async (email, password) => {
         let result = {}
         await signInWithEmailAndPassword(auth, email,password)
         .then(cred => {
@@ -20,7 +20,7 @@ export default class Firestore {
         return result
     }
 
-    logout = async() => {
+    static logout = async() => {
         let result = {}
         await signOut(auth)
         .then(cred => {

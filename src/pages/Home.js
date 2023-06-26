@@ -2,7 +2,6 @@ import React from 'react'
 import Hero from '../Components/Hero';
 import { Grid, Typography } from '@mui/material';
 import ProductCard from '../Components/ProductCard';
-import OffersCard from '../Components/OffersCard';
 
 function Home() {
   return (

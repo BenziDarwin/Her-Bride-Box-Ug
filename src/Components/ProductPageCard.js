@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 function ProductPageCard({src, itemName, price}) {

@@ -1,5 +1,4 @@
 import React from 'react'
-import ShopHero from '../Components/Hero';
 import { Grid, Typography } from '@mui/material';
 import ProductPageCard from '../Components/ProductPageCard';
 import OffersCard from '../Components/OffersCard';

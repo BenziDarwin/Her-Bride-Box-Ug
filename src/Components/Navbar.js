@@ -18,8 +18,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Button, Drawer } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Auth from '../Firebase/Authentication/auth';
+import { Logout } from '@mui/icons-material';
 
 const pages = [
     {
@@ -118,6 +120,8 @@ export default function NavBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const navigate = useNavigate()
+
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -134,6 +138,12 @@ export default function NavBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const handleLogout = async () => {
+    await Auth.logout()
+    navigate("/")
+
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -174,16 +184,32 @@ export default function NavBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <AccountCircleIcon/>
-        </IconButton>
-        <p>Log In</p>
-      </MenuItem>
+      {Auth.getUser() != null ?
+       <MenuItem onClick={handleLogout}>
+       <IconButton
+         size="large"
+         aria-label="show 17 new notifications"
+         color="inherit"
+       >
+         <Logout/>
+       </IconButton>
+       <p>Log In</p>
+     </MenuItem>
+       :
+       <Link to="/login">
+       <MenuItem>
+         <IconButton
+           size="large"
+           aria-label="show 17 new notifications"
+           color="inherit"
+         >
+           <AccountCircleIcon/>
+         </IconButton>
+         <p>Log In</p>
+       </MenuItem>
+       </Link>
+       }
+    
       <MenuItem>
         <IconButton
           size="large"
@@ -217,6 +243,7 @@ export default function NavBar() {
           >
             <MenuIcon sx={{display:{md:"none", xs:"block"}}}/>
           </IconButton>
+          <Link to="/">
           <Typography
             variant="h6"
             noWrap
@@ -225,6 +252,7 @@ export default function NavBar() {
           >
             HerBrideBoxUg
           </Typography>
+          </Link>
           <Box sx={{ flexGrow: 10}}/>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -248,13 +276,25 @@ export default function NavBar() {
             />
           </Search>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-            <AccountCircleIcon />
-            </IconButton>
+            {Auth.getUser() != null ?
+               <IconButton
+               onClick={handleLogout}
+               size="large"
+               color="inherit"
+             >
+             <Logout/>
+             </IconButton>
+             :
+             <Link to="/login">
+             <IconButton
+                 size="large"
+                 aria-label="show 17 new notifications"
+                 color="inherit"
+               >
+               <AccountCircleIcon />
+               </IconButton>
+               </Link>
+             }
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
