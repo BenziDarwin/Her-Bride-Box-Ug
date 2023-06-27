@@ -22,6 +22,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Auth from '../Firebase/Authentication/auth';
 import { Logout } from '@mui/icons-material';
+import AddIcon from '@mui/icons-material/Add';
 
 const pages = [
     {
@@ -185,16 +186,26 @@ export default function NavBar() {
       onClose={handleMobileMenuClose}
     >
       {Auth.getUser() != null ?
+      <>
        <MenuItem onClick={handleLogout}>
        <IconButton
          size="large"
-         aria-label="show 17 new notifications"
          color="inherit"
        >
          <Logout/>
        </IconButton>
-       <p>Log In</p>
+       <p>Log Out</p>
      </MenuItem>
+     <MenuItem onClick={handleLogout}>
+       <IconButton
+         size="large"
+         color="inherit"
+       >
+         <AddIcon/>
+       </IconButton>
+       <p>Add Item</p>
+     </MenuItem>
+     </>
        :
        <Link to="/login">
        <MenuItem>
@@ -277,6 +288,7 @@ export default function NavBar() {
           </Search>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {Auth.getUser() != null ?
+            <>
                <IconButton
                onClick={handleLogout}
                size="large"
@@ -284,6 +296,15 @@ export default function NavBar() {
              >
              <Logout/>
              </IconButton>
+              <IconButton
+              onClick={handleLogout}
+              size="large"
+              color="inherit"
+            >
+            <AddIcon/>
+            </IconButton>
+            </>
+             
              :
              <Link to="/login">
              <IconButton
