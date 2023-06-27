@@ -200,6 +200,7 @@ export default function NavBar() {
        <IconButton
          size="large"
          color="inherit"
+         onClick={() => navigate("/additem")}
        >
          <AddIcon/>
        </IconButton>
@@ -299,6 +300,7 @@ export default function NavBar() {
               <IconButton
               size="large"
               color="inherit"
+              onClick={() => navigate("/additem")}
             >
             <AddIcon/>
             </IconButton>

@@ -1,6 +1,7 @@
 import { Category } from '@mui/icons-material';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useState } from 'react'
+import {Typography } from '@mui/material';
 
 function EditPage() {
     const [file, setFile] = useState(null);
@@ -14,7 +15,10 @@ function EditPage() {
     }
   return (
     <div className='grid place-items-center'>
-
+        <h2 className="text-center mt-4">
+            <Typography variant="h3" component="h2">
+                Edit Item
+            </Typography></h2>
 <form className="block w-[70vw] m-10 p-6 bg-white border border-gray-200 rounded-lg shadow" >
   <div class="mb-6">
   <div class="flex items-center justify-center w-full">

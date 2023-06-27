@@ -1,21 +1,56 @@
-import { Category } from '@mui/icons-material';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useState } from 'react'
+import {Typography } from '@mui/material';
+import DB from '../Firebase/DB/storage';
+import Firestore from '../Firebase/Firestore/firestore';
+import { useNavigate } from 'react-router-dom';
 
-function EditPage() {
+function AddPage() {
     const [file, setFile] = useState(null);
+    const [path, setPath] = useState(null);
     const [category, setCategory] = useState(null);
+
+    const navigate = useNavigate()
+    let x = Math.floor((Math.random() * 7000000) + 0);
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        await DB.setItemImage(x.toString(),path);
+        let imageUrl = await DB.getURL(x.toString())
+        let response = await Firestore.addItem(
+            category,
+            event.target["name"].value,
+            event.target["price"].value,
+            event.target["description"].value,
+            imageUrl.val,
+            x.toString()
+            );
+        if (response.code == 0) {
+            navigate("/")
+        }
+    }
     function handleCategory(val) {
         setCategory(val.target.value)
     } 
     function handleChange(e) {
-        console.log(e.target.files);
+        let reader = new FileReader()
+        reader.readAsArrayBuffer(e.target.files[0])
+        reader.onload = () => {
+            setPath(new Uint8Array(reader.result))
+        }
+        reader.onerror = () => {
+            console.log(reader.error)
+        }
         setFile(URL.createObjectURL(e.target.files[0]));
     }
   return (
     <div className='grid place-items-center'>
+        <h2 className="text-center mt-4">
+            <Typography variant="h3" component="h2">
+                Add Item
+            </Typography>
+        </h2>
 
-<form className="block w-[70vw] m-10 p-6 bg-white border border-gray-200 rounded-lg shadow" >
+<form  onSubmit={handleSubmit} className="block w-[70vw] m-10 p-6 bg-white border border-gray-200 rounded-lg shadow" >
   <div class="mb-6">
   <div class="flex items-center justify-center w-full">
     
@@ -30,14 +65,14 @@ function EditPage() {
         :
         <img class="h-auto max-w-lg rounded-lg" src={file} alt="image description"/>
         }
-        <input id="dropzone-file" type="file" onChange={handleChange}  class="hidden" />
 </div> 
+<input id="dropzone-file" type="file" onChange={handleChange}  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item name</label>
-    <input type="text" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
+    <input type="text" id="name" name='name' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
   </div>
   <div class="mb-6">
     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Price</label>
-    <input type="number" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
+    <input type="number" name='price' id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
   </div>
   <div class="mb-6 w-[300px]">
   <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -55,13 +90,13 @@ function EditPage() {
   </div>
 
 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Description</label>
-<textarea id="description" rows="4" class="block my-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+<textarea id="description" name='description' rows="4" class="block my-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 </textarea>
-  <button type="submit" class="text-white bg-[#73A336] hover:bg-[#006400] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
+  <button type="submit"  class="text-white bg-[#73A336] hover:bg-[#006400] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
 </form>
 
     </div>
   )
 }
 
-export default EditPage
+export default AddPage

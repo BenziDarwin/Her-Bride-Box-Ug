@@ -1,15 +1,17 @@
-import DB from "../DB/db"
+import DB from "../DB/storage"
 import {firestore} from "../firebaseConfig"
-import {doc, collection, getDoc, updateDoc, deleteDoc, addDoc, query, getDocs} from "firebase/firestore"
+import {doc, collection, getDoc, updateDoc, deleteDoc, addDoc ,query, getDocs, where} from "firebase/firestore"
 
 export default class Firestore {
 
-    addItem = async (category, name, price, description, image) => {
+    static addItem = async (category, name, price, description, image, id) => {
         let result = {}
-        await addDoc(collection(firestore, category) , {
+        await addDoc(collection(firestore, "Products") , {
+            itemId:id,
             name:name,
             price:price,
             description:description,
+            category:category,
             image: image
         }).then(e => {
            result = {code:0, val:e} 
@@ -19,9 +21,9 @@ export default class Firestore {
         return result
     }
 
-    removeItem = async(category, itemid) => {
+    removeItem = async(itemid) => {
         let result = {}
-        await deleteDoc(doc(firestore, category, itemid))
+        await deleteDoc(doc(firestore, "Products", itemid))
         .then(e => {
             result = {code:0, val:e} 
          }).catch( err => {
@@ -58,9 +60,9 @@ export default class Firestore {
 
     }
 
-    getItem = async(category, itemId) => {
-        const ref = doc(firestore, category, itemId);
-        const docSnap = await getDoc(docRef);
+    getItem = async(itemId) => {
+        const ref = doc(firestore, "Products", itemId);
+        const docSnap = await getDoc(ref);
         if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
         } else {
@@ -68,15 +70,15 @@ export default class Firestore {
         }
     }
 
-    getItems = async (category) => {
-        let result = {}
-        const q = query(collection(firestore, category));
-        const querySnapshot = await getDocs(q)
-        .then(e => {
-            result = {code:0, val:e} 
-         }).catch( err => {
-            result = {code:1, val:err} 
-         })
+    static getItems = async (category) => {
+        let result = {code:null, val:null }
+        const q = query(collection(firestore, "Products"), where("category","==",category));
+        let res = []
+        let snapshots = await getDocs(q);
+        snapshots.forEach(doc => {
+            res.push(doc.data())
+        })
+            result = {code:0, val:res} 
         return result;
 
     }
