@@ -20,10 +20,10 @@ function Home() {
     </Grid>
     </Grid>
     <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-6 grid-cols-1 place-items-center">
-    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard itemId={1} src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard itemId={2}  src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard itemId={3}  src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    <ProductCard itemId={4}  src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
 </div>
 
     

@@ -196,7 +196,7 @@ export default function NavBar() {
        </IconButton>
        <p>Log Out</p>
      </MenuItem>
-     <MenuItem onClick={handleLogout}>
+     <MenuItem>
        <IconButton
          size="large"
          color="inherit"
@@ -297,7 +297,6 @@ export default function NavBar() {
              <Logout/>
              </IconButton>
               <IconButton
-              onClick={handleLogout}
               size="large"
               color="inherit"
             >

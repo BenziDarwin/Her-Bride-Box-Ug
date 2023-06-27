@@ -5,7 +5,11 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 export default class Auth {
     
     static getUser = () => {
+        auth.onAuthStateChanged(val => {
+            return val
+        })
         return auth.currentUser
+
     }
 
     static login = async (email, password) => {
