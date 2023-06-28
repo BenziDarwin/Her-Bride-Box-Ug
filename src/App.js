@@ -9,6 +9,7 @@ import SignIn from './pages/Login'
 import EditPage from './pages/EditPage'
 import NotFoundPage from './pages/404'
 import AddPage from './pages/AddPage'
+import ProductDetails from './pages/ProductDetails'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/login" element={<SignIn/>}/>
         <Route exact path="/additem" element={<AddPage/>}/>
         <Route exact path="/edit/:id" element={<EditPage/>}/>
+        <Route exact path="/details/:id" element={<ProductDetails/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
       </Routes>
       <Footer/>

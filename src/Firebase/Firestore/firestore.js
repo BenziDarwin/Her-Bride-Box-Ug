@@ -60,14 +60,16 @@ export default class Firestore {
 
     }
 
-    getItem = async(itemId) => {
-        const ref = doc(firestore, "Products", itemId);
-        const docSnap = await getDoc(ref);
-        if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
-        } else {
-            console.log("No such document!");
-        }
+    static getItem = async(itemId) => {
+        let result = {code:null, val:null }
+        const q = query(collection(firestore, "Products"), where("itemId","==",itemId));
+        let res;
+        let snapshots = await getDocs(q);
+        snapshots.forEach(doc => {
+            res = doc.data()
+        })
+        result = {code:0, val:res} 
+        return result
     }
 
     static getItems = async (category) => {
@@ -78,7 +80,7 @@ export default class Firestore {
         snapshots.forEach(doc => {
             res.push(doc.data())
         })
-            result = {code:0, val:res} 
+        result = {code:0, val:res} 
         return result;
 
     }

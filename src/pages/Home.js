@@ -34,7 +34,7 @@ function Home() {
       bestProducts && bestProducts
       .map((doc) => {
         return (
-          <ProductCard src={doc.image} itemName={doc.name} price={doc.price}/>
+          <ProductCard src={doc.image} itemId={doc.itemId} itemName={doc.name} price={doc.price}/>
         )
       })
     }
