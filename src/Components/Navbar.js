@@ -245,9 +245,12 @@ export default function NavBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            component="span"
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
           >
+            {
+              //<img style={{height:"30px", marginRight:"10px"}} src="./favicon.png"/>
+            }
             HerBrideBoxUg
           </Typography>
           </Link>
