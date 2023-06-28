@@ -1,24 +1,46 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Firestore from '../Firebase/Firestore/firestore'
 import { CircularProgress } from '@mui/material'
+import Auth from '../Firebase/Authentication/auth';
 var currencyFormatter = require("currency-formatter");
 
 function ProductDetails() {
     const {id} = useParams()
     const [details, setDetails] = useState(null)
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
       async function fetchData() {
         let data = await Firestore.getItem(id)
         setDetails(data.val)
+        setLoading(false)
       }
       fetchData()
     },[])
 
+    const deleteHandler = async () => {
+      setLoading(true)
+        await Firestore.removeItem(details.itemId).then
+        (e => {
+          navigate("/")
+        })
+        setLoading(false)
+    }
+
 
   if (details == null) {
-    return <CircularProgress/>
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight:"80vh"
+    }}>
+        <CircularProgress size={100} sx={{color:"darkgreen"}}/>
+    </div>
+    )
   } else {
     return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -33,7 +55,18 @@ function ProductDetails() {
                 precision: 0,
                 format: '%v %s'
               })}</span><br/>
-            <button className="flex ml-auto my-8 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to Cart</button>
+            <span>
+              <button className="mt-12 text-white bg-[#73A336] border-0 py-2 px-6 focus:outline-none hover:bg-[darkgreen] rounded">
+                Add to Cart
+              </button>
+              {Auth.getUser() != null ? 
+              <button disabled={loading} onClick={deleteHandler} className="text-white ms-12 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                {loading?<CircularProgress/>:"Delete Item"}
+              </button>:
+              null
+              }
+             
+            </span>
         </div>
       </div>
     </div>

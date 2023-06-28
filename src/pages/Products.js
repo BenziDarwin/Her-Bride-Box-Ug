@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid, Typography } from '@mui/material';
 import ProductPageCard from '../Components/ProductPageCard';
 import OffersCard from '../Components/OffersCard';
@@ -7,8 +7,17 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Firestore from '../Firebase/Firestore/firestore';
 
 function Products() {
+  const [products, setProducts] = useState(null)
+  useEffect(() => {
+    async function fetchData() {
+      let products = await Firestore.getAllItems();
+      setProducts([...products.val])
+    }
+    fetchData()
+  }, [products])
   return (
     <>
     <ProductHero/>
@@ -28,11 +37,14 @@ function Products() {
       </FormControl>
     </div>
     <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 grid-cols-1 place-items-center">
-    <ProductPageCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductPageCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductPageCard src="./bridebox.jpeg"title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductPageCard src="./bridebox.jpeg"title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
-    <ProductPageCard src="./bridebox.jpeg" title="Robes- For Hire" itemName="Luxurious pink robes." price="35,000 Ugx"/>
+    {
+      products && products
+      .map((doc) => {
+        return (
+          <ProductPageCard src={doc.image} itemId={doc.itemId} itemName={doc.name} price={doc.price}/>
+        )
+      })
+    }
 </div>
     <Grid container className='px-10 py-4'>
     <Grid item xs={6}>

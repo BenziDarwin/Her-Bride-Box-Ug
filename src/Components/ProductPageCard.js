@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+var currencyFormatter = require("currency-formatter");
 
 function ProductPageCard({src, itemName, price}) {
   return (
@@ -11,7 +12,12 @@ function ProductPageCard({src, itemName, price}) {
   </div>
   <Grid container>
     <Grid item xs={7} md={6}>
-    <span class="inline-block px-3 text-white py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{price}</span>
+    <span class="inline-block px-3 text-white py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+      {currencyFormatter.format(parseInt(price), {
+        symbol: 'UGX',
+        precision: 0,
+        format: '%v %s'
+  })}</span>
     </Grid>
     <Grid item xs={5} md={6}>
       <div className="text-right me-10">

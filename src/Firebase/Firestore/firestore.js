@@ -21,9 +21,15 @@ export default class Firestore {
         return result
     }
 
-    removeItem = async(itemid) => {
-        let result = {}
-        await deleteDoc(doc(firestore, "Products", itemid))
+    static removeItem = async(itemId) => {
+        let result = {code:null, itemId:null}
+        const q = query(collection(firestore, "Products"), where("itemId","==",itemId));
+        let snapshots = await getDocs(q);
+        let id;
+        snapshots.forEach(doc => {
+            id = doc.id
+        })
+        await deleteDoc(doc(firestore, "Products", id))
         .then(e => {
             result = {code:0, val:e} 
          }).catch( err => {
@@ -75,6 +81,19 @@ export default class Firestore {
     static getItems = async (category) => {
         let result = {code:null, val:null }
         const q = query(collection(firestore, "Products"), where("category","==",category));
+        let res = []
+        let snapshots = await getDocs(q);
+        snapshots.forEach(doc => {
+            res.push(doc.data())
+        })
+        result = {code:0, val:res} 
+        return result;
+
+    }
+
+    static getAllItems = async () => {
+        let result = {code:null, val:null }
+        const q = query(collection(firestore, "Products"));
         let res = []
         let snapshots = await getDocs(q);
         snapshots.forEach(doc => {

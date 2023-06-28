@@ -1,4 +1,4 @@
-import { InputLabel, MenuItem, Select } from '@mui/material';
+import { CircularProgress, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useState } from 'react'
 import {Typography } from '@mui/material';
 import DB from '../Firebase/DB/storage';
@@ -9,11 +9,13 @@ function AddPage() {
     const [file, setFile] = useState(null);
     const [path, setPath] = useState(null);
     const [category, setCategory] = useState(null);
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
     let x = Math.floor((Math.random() * 7000000) + 0);
     const handleSubmit = async (event) => {
         event.preventDefault()
+        setLoading(true)
         await DB.setItemImage(x.toString(),path);
         let imageUrl = await DB.getURL(x.toString())
         let response = await Firestore.addItem(
@@ -27,6 +29,7 @@ function AddPage() {
         if (response.code == 0) {
             navigate("/")
         }
+        setLoading(false)
     }
     function handleCategory(val) {
         setCategory(val.target.value)
@@ -92,7 +95,9 @@ function AddPage() {
 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Description</label>
 <textarea id="description" name='description' rows="4" class="block my-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 </textarea>
-  <button type="submit"  class="text-white bg-[#73A336] hover:bg-[#006400] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
+  <button type="submit"  disabled={loading} class="text-white bg-[#73A336] hover:bg-[#006400] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+    {loading?<CircularProgress/>:"Submit"}
+    </button>
 </form>
 
     </div>
