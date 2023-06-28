@@ -5,7 +5,7 @@ var currencyFormatter = require("currency-formatter");
 
 function ProductPageCard({src, itemName, price}) {
   return (
-    <div class="max-w-sm lg:w-[300px] xs:w-[300px] text-left rounded overflow-hidden bg-[#6C8152] shadow-lg">
+    <div class="max-w-sm lg:w-[300px] xs:w-[300px] m-12 text-left rounded overflow-hidden bg-[#6C8152] shadow-lg">
   <img class="w-full" src={src} alt="Sunset in the mountains"/>
   <div class="mx-2 text-white py-4">
     <div class="font-bold text-xl mb-2">{itemName}</div>
