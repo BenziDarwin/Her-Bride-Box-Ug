@@ -212,7 +212,6 @@ export default function NavBar() {
        <MenuItem>
          <IconButton
            size="large"
-           aria-label="show 17 new notifications"
            color="inherit"
          >
            <AccountCircleIcon/>
@@ -221,19 +220,6 @@ export default function NavBar() {
        </MenuItem>
        </Link>
        }
-    
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <ShoppingCartIcon/>
-          </Badge>
-        </IconButton>
-        <p>Shopping Cart</p>
-      </MenuItem>
     </Menu>
   );
 
@@ -317,15 +303,6 @@ export default function NavBar() {
                </IconButton>
                </Link>
              }
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
