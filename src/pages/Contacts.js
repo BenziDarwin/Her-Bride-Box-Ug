@@ -179,8 +179,8 @@ export default function Contacts() {
             <p>Reach out to us today!</p>
             <p><Phone/> +256 788999648</p>
             <p><Phone/> +256 705468775</p>
-            <p><Mail/> example@gmail.com</p>
-            <p><LocationCity/> Shop HerBrideBoxUg, Kampala, Uganda.</p>
+            <p><Mail/> hildahnuwaz1@gmail.com</p>
+            <p><LocationCity/> Kisementi Crane Plaza Basement Shop no:B06.</p>
         </Grid>
             </Box>
           </Box>
