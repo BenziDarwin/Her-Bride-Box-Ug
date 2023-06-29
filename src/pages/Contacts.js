@@ -59,10 +59,10 @@ export default function Contacts() {
                 <Phone/> +256 705468775
             </p>
             <p class="mb-3 text-lg text-black md:text-xl">
-                <Mail/> example@gmail.com
+                <Mail/> hildahnuwaz1@gmail.com
             </p>
             <p class="mb-3 text-lg text-black md:text-xl">
-            <LocationCity/> Shop HerBrideBoxUg, Kampala, Uganda.
+            <LocationCity/> Kisementi Crane Plaza Basement Shop no:B06.
             </p>
             </div>
         </Grid>
