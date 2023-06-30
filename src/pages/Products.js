@@ -58,9 +58,9 @@ function Products() {
     </Grid>
     <div className='xl:h-[60vh] pb-5 bg-[#CDA792] w-screen pt-5'>
     <div className="grid md:grid-cols-3 gap-6 grid-cols-1 place-items-center">
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
-        <OffersCard itemName="Bridal Shoes" src="./bridebox.jpeg" />
+        <OffersCard itemName="Bridal Shoes" src="./hillsgd.JPG" />
+        <OffersCard itemName="Bridal Sandals" src="./sandalcrossed.jpeg" />
+        <OffersCard itemName="Bridal Accesories" src="./crown.jpeg" />
     </div>
     </div>
     </>
