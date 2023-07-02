@@ -38,13 +38,7 @@ Note: Make sure you have Node.js and npm (Node Package Manager) installed on you
 - CSS
 - Material UI
 - Tailwindcss
-- Firebase (optional, if used for authentication or database)
-
-## Contributing
-
-We welcome contributions to improve the Her Bride Box Ug E-commerce Shop! If you encounter any issues or have suggestions for enhancements, please feel free to submit a pull request. We'll review your contribution and merge it if it aligns with the project's goals.
-
-Before contributing, please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+- Firebase
 
 ## License
 
@@ -62,4 +56,4 @@ We hope you enjoy your shopping experience at Her Bride Box Ug!
 Happy browsing and best wishes for your wedding day!
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub issues](https://img.shields.io/github/issues/herbrideboxug/e-commerce-shop.svg)](https://github.com/herbrideboxug/e-commerce-shop/issues)
+[![GitHub issues](https://img.shields.io/github/issues/herbrideboxug/e-commerce-shop.svg)](https://github.com/BenziDarwin/Her-Bride-Box-Ug/issues)
