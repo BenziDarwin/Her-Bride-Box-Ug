@@ -4,15 +4,18 @@ import {doc, collection, getDoc, updateDoc, deleteDoc, addDoc ,query, getDocs, w
 
 export default class Firestore {
 
-    static addItem = async (category, name, price, description, image, id) => {
+    static addItem = async (category, name, price, description, image, item_category ,color, age_category, id) => {
         let result = {}
         await addDoc(collection(firestore, "Products") , {
-            itemId:id,
-            name:name,
-            price:price,
-            description:description,
-            category:category,
-            image: image
+            itemId : id,
+            name : name,
+            price : price,
+            description : description,
+            category : category,
+            image : image,
+            item_category : item_category,
+            color : color,
+            age_category : age_category
         }).then(e => {
            result = {code:0, val:e} 
         }).catch( err => {

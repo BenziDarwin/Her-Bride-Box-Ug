@@ -24,6 +24,9 @@ function AddPage() {
             event.target["price"].value,
             event.target["description"].value,
             imageUrl.val,
+            item_category,
+            color,
+            age_category,
             x.toString()
             );
         if (response.code == 0) {
@@ -78,12 +81,48 @@ function AddPage() {
     <input type="number" name='price' id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
   </div>
   <div class="mb-6 w-[300px]">
-  <InputLabel id="demo-simple-select-label">Category</InputLabel>
+  <InputLabel id="category">Item Category</InputLabel>
   <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
+    labelId="category"
+    id="category-list"
     value={category}
     label="Category"
+    onChange={handleCategory}
+  >
+    <MenuItem value={"Best Selling Products"}>Best Selling Products</MenuItem>
+    <MenuItem value={"Robes"}>Robes</MenuItem>
+    <MenuItem value={"Shoes"}>Shoes</MenuItem>
+  </Select>
+  <InputLabel id="type">Type</InputLabel>
+  <Select
+    labelId="type"
+    id="type-list"
+    value={category}
+    label="Type"
+    onChange={handleCategory}
+  >
+    <MenuItem value={"Best Selling Products"}>Best Selling Products</MenuItem>
+    <MenuItem value={"Robes"}>Robes</MenuItem>
+    <MenuItem value={"Shoes"}>Shoes</MenuItem>
+  </Select>
+  <InputLabel id="color">Colors</InputLabel>
+  <Select
+    labelId="color"
+    id="color-list"
+    value={category}
+    label="Color"
+    onChange={handleCategory}
+  >
+    <MenuItem value={"Best Selling Products"}>Best Selling Products</MenuItem>
+    <MenuItem value={"Robes"}>Robes</MenuItem>
+    <MenuItem value={"Shoes"}>Shoes</MenuItem>
+  </Select>
+  <InputLabel id="age_category">Age Category</InputLabel>
+  <Select
+    labelId="age_category"
+    id="age_category-list"
+    value={category}
+    label="Age Category"
     onChange={handleCategory}
   >
     <MenuItem value={"Best Selling Products"}>Best Selling Products</MenuItem>
